@@ -11,7 +11,7 @@ pragma solidity ^0.8.0;
 
 */
 contract MyToken {
-    // Public variables to store token details
+   
     string public tokenName = "Tether";
     string public tokenAbbrv = "USDT";
     uint public totalSupply = 0;
@@ -20,16 +20,16 @@ contract MyToken {
     mapping(address => uint) public balances;
 
     // Mint function to create new tokens
-    function mint(address _to, uint _value) public {
-        totalSupply += _value;          // Increase total supply
-        balances[_to] += _value;        // Increase balance of the recipient address
+    function mint(address _add, uint _value) public {
+        totalSupply += _value;        
+        balances[_add] += _value;       
     }
 
     // Burn function to destroy tokens
-    function burn(address _from, uint _value) public {
-        require(balances[_from] >= _value, "Insufficient balance to burn");  // Check if balance is sufficient to burn
+    function burn(address _add, uint _value) public {
+        require(balances[_add] >= _value, "Insufficient balance to burn");  
 
-        totalSupply -= _value;          // Decrease total supply
-        balances[_from] -= _value;      // Decrease balance of the sender address
+        totalSupply -= _value;          
+        balances[_add] -= _value;   
     }
 }
